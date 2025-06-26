@@ -5,7 +5,7 @@ import { API_ENDPOINTS } from "../constants/api";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.BASE_URL,
+    baseUrl: import.meta.env.VITE_BASE_URL,
     credentials: "omit",
     prepareHeaders: (headers) => {
       headers.set("Content-Type", "application/json");

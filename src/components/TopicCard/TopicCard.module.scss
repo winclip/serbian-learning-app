@@ -1,0 +1,14 @@
+.cardLink {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.card {
+  border: 4px double #1f2122;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f8f8f8;
+}
