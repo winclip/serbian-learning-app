@@ -1,0 +1,19 @@
+.card {
+  border-radius: 12px;
+  background: linear-gradient(to right, #f0f2f5, #ffffff);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  height: 100%;
+}
+
+.cardTitle {
+  font-size: 20px;
+}
+
+.translationLabel {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.translationText {
+  display: block;
+  font-size: 18px;
+}

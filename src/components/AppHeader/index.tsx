@@ -10,9 +10,9 @@ const { Header } = Layout;
 const { useBreakpoint } = Grid;
 
 const AppHeader = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
   const screens = useBreakpoint();
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = !screens.md;
 
   return (
