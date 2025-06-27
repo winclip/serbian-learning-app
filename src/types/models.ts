@@ -24,3 +24,8 @@ export interface IQuestion {
   createdAt?: string;
   updatedAt?: string;
 }
+export type IMenuItem = {
+  key: string;
+  label: string;
+  path: string;
+};
