@@ -7,4 +7,5 @@ export const menuItems: IMenuItem[] = [
   { key: "/dictionary", label: "Dictionary", path: "/dictionary" },
   { key: "/exercises", label: "Exercises", path: "/exercises" },
   { key: "/contacts", label: "Contacts", path: "/contacts" },
+  { key: "/study", label: "Study", path: "/study" },
 ];

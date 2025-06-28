@@ -5,6 +5,7 @@ import DictionaryPage from "./pages/DictionaryPage";
 import TopicPage from "./pages/TopicPage";
 import ExercisesPage from "./pages/ExercisesPage";
 import ContactsPage from "./pages/ContactsPage";
+import StudyPage from "./pages/StudyPage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "dictionary/:topicId", element: <TopicPage /> },
       { path: "exercises", element: <ExercisesPage /> },
       { path: "contacts", element: <ContactsPage /> },
+      { path: "study", element: <StudyPage /> },
     ],
   },
 ]);
