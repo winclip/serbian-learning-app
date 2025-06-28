@@ -1,7 +1,9 @@
+import IntroBlock from "../../components/HeroSection";
+
 const HomePage = () => {
   return (
     <div className="home-page">
-      <h1>Home Page</h1>
+      <IntroBlock />
     </div>
   );
 };

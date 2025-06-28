@@ -29,3 +29,8 @@ export type IMenuItem = {
   label: string;
   path: string;
 };
+export type IHeroVocabularyItem = {
+  id: string;
+  serbian: string;
+  english: string;
+};
