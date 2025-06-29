@@ -1,9 +1,11 @@
 .header {
   padding-inline: 20px;
-  background: #001529;
+  background: linear-gradient(to right, #1e3a8e, #c2363e) !important;
   display: flex;
   align-items: center;
   justify-content: end;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 .menuIcon {
@@ -13,7 +15,7 @@
 
 .drawer {
   .ant-drawer-body {
-    background: #001529;
+    background: #051134;
   }
 }
 
@@ -24,18 +26,34 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
-  background: #001529;
 }
 
 .link {
   color: white;
   font-size: 20px;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: color 0.3s ease;
 }
 
 .linkActive {
-  color: #1890ff;
+  color: #c2363e;
+}
+.ant-menu-item {
+  background: transparent !important;
+}
+.desktopMenu .ant-menu-item a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 4px 15px 8px 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.desktopMenu .ant-menu-item-selected a {
+  border: 1px solid rgba(137, 209, 126);
+  color: rgba(137, 209, 126);
+  border-radius: 10px;
 }
 
 .desktopMenu {
