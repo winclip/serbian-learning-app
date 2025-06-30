@@ -1,0 +1,52 @@
+.form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+
+    span {
+      color: red;
+    }
+
+    input,
+    textarea {
+      margin-top: 8px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+  }
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #2c3e94, #a52c45);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: top 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  top: 0;
+  font-size: 16px;
+  line-height: 1;
+  height: 48px;
+
+  &:hover {
+    top: 2px;
+    box-shadow: none;
+  }
+}

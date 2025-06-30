@@ -65,41 +65,26 @@ const HeroSection = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <div className={styles.languageCard}>
-            <div className={styles.serbianText}>
-              <span>Здраво</span>
-              <span>Хвала</span>
-              <span>Добар дан</span>
-            </div>
-            <div className={styles.floatingElements}>
-              <motion.div
-                className={`${styles.floatingCircle} ${styles.primary}`}
-                animate={{
-                  y: [0, -20, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className={`${styles.floatingCircle} ${styles.secondary}`}
-                animate={{
-                  y: [0, 20, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
-              />
-            </div>
-          </div>
+          <img src="images/heroImg.svg" alt="Language visual" />
+          <motion.div
+            className={`${styles.floatingCircle} ${styles.primary}`}
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            style={{ position: "absolute" }}
+          />
+          <motion.div
+            className={`${styles.floatingCircle} ${styles.secondary}`}
+            animate={{ y: [0, 20, 0] }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
+            style={{ position: "absolute" }}
+          />
         </motion.div>
       </div>
-
       <div className={styles.scrollingBanner}>
         <motion.div
           className={styles.scrollingContent}

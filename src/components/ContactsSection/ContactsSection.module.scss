@@ -1,0 +1,47 @@
+.contacts {
+  padding: 64px 32px;
+  background: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.contactInfo {
+  flex: 1;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin: 8px 0;
+  }
+}
+
+.contactImageWrapper {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 400px;
+  align-self: end;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    align-self: end;
+  }
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #2c3e94, #a52c45);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}

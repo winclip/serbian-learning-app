@@ -1,3 +1,4 @@
+import type { Rule } from "antd/es/form";
 import type { IHeroVocabularyItem, IMenuItem } from "../types/models";
 
 export const PAGINATION_SIZE_TOPICS = 16;
@@ -26,4 +27,17 @@ export const heroVocabulary: IHeroVocabularyItem[] = [
   { id: "13", serbian: "Porodica", english: "Family" },
   { id: "14", serbian: "Priroda", english: "Nature" },
   { id: "15", serbian: "Grad", english: "City" },
+];
+
+export const nameRules: Rule[] = [
+  { required: true, message: "Please enter your name" },
+];
+
+export const emailRules: Rule[] = [
+  { required: true, message: "Please enter your email" },
+  { type: "email", message: "Please enter a valid email" },
+];
+
+export const commentRules: Rule[] = [
+  { required: true, message: "Please enter a comment" },
 ];

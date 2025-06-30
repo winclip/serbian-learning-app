@@ -24,13 +24,19 @@ export interface IQuestion {
   createdAt?: string;
   updatedAt?: string;
 }
-export type IMenuItem = {
+export interface IMenuItem {
   key: string;
   label: string;
   path: string;
-};
-export type IHeroVocabularyItem = {
+}
+export interface IHeroVocabularyItem {
   id: string;
   serbian: string;
   english: string;
-};
+}
+
+export interface IContactFormValues {
+  name: string;
+  email: string;
+  comment: string;
+}
