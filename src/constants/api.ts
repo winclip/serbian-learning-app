@@ -3,4 +3,5 @@ export const API_ENDPOINTS = {
   WORDS: "/words",
   QUESTIONS: "/questions",
   RANDOM_QUESTIONS: "/questions/random",
+  FEEDBACK: "/feedback",
 } as const;

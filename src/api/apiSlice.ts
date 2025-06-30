@@ -1,5 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { IQuestion, ITopic, IWord } from "../types/models";
+import type {
+  IContactFormValues,
+  IQuestion,
+  ITopic,
+  IWord,
+} from "../types/models";
 import { API_ENDPOINTS } from "../constants/api";
 
 export const apiSlice = createApi({
@@ -58,6 +63,13 @@ export const apiSlice = createApi({
         params: { topic: topicId, limit },
       }),
     }),
+    sendContactMessage: builder.mutation<void, IContactFormValues>({
+      query: (body) => ({
+        url: API_ENDPOINTS.FEEDBACK,
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -69,4 +81,5 @@ export const {
   useGetQuestionsQuery,
   useGetQuestionByIdQuery,
   useGetRandomQuestionsQuery,
+  useSendContactMessageMutation,
 } = apiSlice;
