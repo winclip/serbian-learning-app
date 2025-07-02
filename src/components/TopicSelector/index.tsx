@@ -19,7 +19,7 @@ const TopicSelector: React.FC = () => {
 
   const handleContinue = () => {
     const query = selectedTopics.join(",");
-    navigate(`/sledeca-strana?topics=${query}`);
+    navigate(`/exercises/test?topics=${query}`);
   };
 
   return (
