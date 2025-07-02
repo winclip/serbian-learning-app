@@ -30,7 +30,6 @@ const AppHeader = () => {
             placement="left"
             closable={false}
             className="drawer"
-            bodyStyle={{ padding: 0 }}
           >
             <Button
               type="text"

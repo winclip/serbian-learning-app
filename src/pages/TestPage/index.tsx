@@ -19,7 +19,7 @@ const TestPage = () => {
     sort: "asc",
   });
 
-  if (isLoading) return <Spin tip="Загрузка вопросов..." />;
+  if (isLoading) return <Spin />;
   if (error) return <Text type="danger">Ошибка загрузки вопросов</Text>;
 
   return (
@@ -27,7 +27,6 @@ const TestPage = () => {
       <Title level={2}>Тест по темам: {topicsParam}</Title>
       {questions && questions.length > 0 ? (
         <List
-          bordered
           dataSource={questions}
           renderItem={(q) => (
             <List.Item>

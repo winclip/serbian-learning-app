@@ -24,7 +24,7 @@ const WordsList = () => {
       <div
         style={{ display: "flex", justifyContent: "center", padding: "40px" }}
       >
-        <Spin size="large" tip="Loading words..." />
+        <Spin size="large" />
       </div>
     );
   }

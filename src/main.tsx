@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           components: {
             Menu: {
               fontSize: 16,
-              colorItemTextSelected: "#1890ff",
+              itemSelectedColor: "#1890ff",
               darkItemBg: "transparent",
             },
           },

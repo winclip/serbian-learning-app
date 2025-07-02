@@ -95,8 +95,8 @@ const HeroSection = () => {
             ease: "linear",
           }}
         >
-          {[...heroVocabulary, ...heroVocabulary].map((word) => (
-            <div key={word.id} className={styles.wordCard}>
+          {[...heroVocabulary, ...heroVocabulary].map((word, index) => (
+            <div key={index} className={styles.wordCard}>
               <span>{word.serbian}</span>
               <span className={styles.translation}>{word.english}</span>
             </div>

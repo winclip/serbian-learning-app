@@ -33,10 +33,7 @@ const WordCard = ({ word }: WordCardProps) => {
   return (
     <Card
       hoverable
-      bordered={false}
       className={styles.card}
-      bodyStyle={{ padding: "20px" }}
-      headStyle={{ borderBottom: "none" }}
       title={
         <Space align="center">
           <span role="img" aria-label="serbian">
