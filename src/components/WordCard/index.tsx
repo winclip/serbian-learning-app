@@ -36,9 +36,6 @@ const WordCard = ({ word }: WordCardProps) => {
       className={styles.card}
       title={
         <Space align="center">
-          <span role="img" aria-label="serbian">
-            🇷🇸
-          </span>
           <Text strong className={styles.cardTitle}>
             {word.wordSr}
           </Text>
@@ -47,13 +44,7 @@ const WordCard = ({ word }: WordCardProps) => {
     >
       <Space direction="vertical" size="small" style={{ width: "100%" }}>
         <div>
-          <Text className={styles.translationLabel}>
-            Translation{" "}
-            <span role="img" aria-label="english">
-              🇬🇧
-            </span>
-            :
-          </Text>
+          <Text className={styles.translationLabel}>Translation :</Text>
           <Text strong className={styles.translationText}>
             {word.wordEn}
           </Text>
@@ -64,6 +55,7 @@ const WordCard = ({ word }: WordCardProps) => {
           danger={isLearned}
           block
           onClick={handleClick}
+          className={styles.button}
         >
           {isLearned ? "Remove from Study" : "Add to Study"}
         </Button>

@@ -27,7 +27,6 @@ const TopicSelector: React.FC = () => {
       style={{
         background: "#f9f9f9",
         borderRadius: 12,
-        padding: 24,
         maxWidth: 800,
         margin: "0 auto",
         textAlign: "center",

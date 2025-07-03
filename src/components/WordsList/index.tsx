@@ -41,9 +41,9 @@ const WordsList = () => {
   }
 
   return (
-    <section className={styles.container}>
+    <section>
       <Title level={3} className={styles.title}>
-        📚 Words in This Topic
+        Words in This Topic
       </Title>
       <Text type="secondary" className={styles.subtitle}>
         Total words: {words.length}

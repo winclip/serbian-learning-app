@@ -14,8 +14,8 @@ export const TopicCard = ({ topic }: TopicCardProps) => {
 
   return (
     <Link to={`/dictionary/${topicId}`} aria-label={`View ${nameSr} topic`}>
-      <Card hoverable className={styles.card} title={nameSr}>
-        <Paragraph className={styles.cardParagraph}>{nameEn}</Paragraph>
+      <Card hoverable className={styles.card} title={nameEn}>
+        <Paragraph className={styles.cardParagraph}>{nameSr}</Paragraph>
       </Card>
     </Link>
   );
