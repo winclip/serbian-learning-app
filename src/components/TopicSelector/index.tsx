@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Tag, Button, Typography, Spin } from "antd";
 import { useGetTopicsQuery } from "../../api/apiSlice";
 import type { ITopic } from "../../types/models";
+import styles from "./TopicSelector.module.scss";
 
 const { Title, Text } = Typography;
 
@@ -23,19 +24,13 @@ const TopicSelector: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        background: "#f9f9f9",
-        borderRadius: 12,
-        maxWidth: 800,
-        margin: "0 auto",
-        textAlign: "center",
-      }}
-    >
-      <Title level={3}>Шта Вас интересује?</Title>
-      <Text>Изаберите три или више тема</Text>
+    <div className={styles.container}>
+      <Title level={3} className={styles.title}>
+        What are you interested in?
+      </Title>
+      <Text>Select three or more topics</Text>
 
-      <div style={{ marginTop: 24, marginBottom: 24 }}>
+      <div className={styles.tagsWrapper}>
         {isLoading ? (
           <Spin />
         ) : (
@@ -43,13 +38,7 @@ const TopicSelector: React.FC = () => {
             <Tag
               key={topic._id}
               color={selectedTopics.includes(topic._id) ? "blue" : "default"}
-              style={{
-                margin: 6,
-                padding: "6px 12px",
-                fontSize: 16,
-                borderRadius: 20,
-                cursor: "pointer",
-              }}
+              className={styles.tag}
               onClick={() => toggleTopic(topic._id)}
             >
               {topic.nameSr}/{topic.nameEn}
@@ -64,7 +53,7 @@ const TopicSelector: React.FC = () => {
         disabled={selectedTopics.length < 1}
         onClick={handleContinue}
       >
-        Настави
+        Continue
       </Button>
     </div>
   );
