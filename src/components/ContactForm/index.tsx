@@ -26,9 +26,8 @@ const ContactForm = () => {
       await sendContactMessage(values).unwrap();
       notifySuccess(api);
       form.resetFields();
-    } catch (error: any) {
-      console.error("Form submission error:", error);
-      notifyError(api, error);
+    } catch (error: unknown) {
+      notifyError(api, String(error));
     } finally {
       setIsSubmitting(false);
     }

@@ -1,14 +1,5 @@
 import { useLocation } from "react-router-dom";
-import {
-  Spin,
-  Typography,
-  Row,
-  Col,
-  Button,
-  Result,
-  Progress,
-  Space,
-} from "antd";
+import { Spin, Typography, Row, Col, Button, Result, Progress } from "antd";
 import { useState, useMemo } from "react";
 import { useGetQuestionsQuery } from "../../api/apiSlice";
 import type { IQuestion } from "../../types/models";
