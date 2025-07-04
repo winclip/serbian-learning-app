@@ -12,6 +12,7 @@ import {
 import { useState, useMemo } from "react";
 import { useGetQuestionsQuery } from "../../api/apiSlice";
 import type { IQuestion } from "../../types/models";
+import TestResults from "../../components/TestResults";
 
 const { Title, Text } = Typography;
 
@@ -108,16 +109,11 @@ const TestPage = () => {
       <Progress percent={progressPercent} showInfo={false} />
 
       {showResult ? (
-        <Space direction="vertical" size="large" style={{ width: "100%" }}>
-          <Title level={3}>Rezultati testa</Title>
-          <Text strong style={{ fontSize: 18 }}>
-            Tačnih odgovora: {calculateScore()} od {questions.length} (
-            {Math.round((calculateScore() / questions.length) * 100)}%)
-          </Text>
-          <Button type="primary" onClick={resetTest}>
-            Ponovi test
-          </Button>
-        </Space>
+        <TestResults
+          score={calculateScore()}
+          totalQuestions={questions.length}
+          onReset={resetTest}
+        />
       ) : (
         <>
           <Title level={4}>
