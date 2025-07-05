@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useGetQuestionsQuery } from "../../api/apiSlice";
 import type { IQuestion } from "../../types/models";
 import TestResults from "../../components/TestResults";
+import styles from "./TestPage.module.scss";
 
 const { Title, Text } = Typography;
 
@@ -95,8 +96,8 @@ const TestPage = () => {
   const correctAnswer = currentQuestion.options[currentQuestion.answerIndex];
 
   return (
-    <div style={{ padding: 24, maxWidth: 800, margin: "0 auto" }}>
-      <Title level={2}>Test iz oblasti: {topicsParam}</Title>
+    <div className={styles.container}>
+      <Title level={2}>Test iz oblasti: </Title>
       <Progress percent={progressPercent} showInfo={false} />
 
       {showResult ? (
@@ -110,11 +111,14 @@ const TestPage = () => {
           <Title level={4}>
             Pitanje {currentIndex + 1} od {questions.length}
           </Title>
-          <Text strong style={{ fontSize: 16 }}>
-            {currentQuestion.questionText}
-          </Text>
 
-          <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
+          <div className={styles.questionBlock}>
+            <Text strong className={styles.questionText}>
+              {currentQuestion.questionText}
+            </Text>
+          </div>
+
+          <Row gutter={[16, 16]}>
             {currentQuestion.options.map((option: string, index: number) => {
               const isOptionCorrect = index === currentQuestion.answerIndex;
               const isSelected = index === selectedAnswers[currentIndex];
@@ -129,11 +133,7 @@ const TestPage = () => {
                     disabled={isAnswered}
                     type={showColor && isOptionCorrect ? "primary" : "default"}
                     danger={showColor && !isOptionCorrect}
-                    style={{
-                      textAlign: "left",
-                      height: "auto",
-                      whiteSpace: "normal",
-                    }}
+                    className={styles.optionButton}
                   >
                     {option}
                   </Button>

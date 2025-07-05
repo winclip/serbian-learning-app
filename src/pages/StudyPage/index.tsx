@@ -13,7 +13,7 @@ const StudyPage = () => {
   return (
     <section style={{ padding: "24px" }}>
       <Title level={3} style={{ textAlign: "center", marginBottom: "24px" }}>
-        📖 Words to Study
+        Words to Study
       </Title>
 
       {learnedWords.length === 0 ? (
