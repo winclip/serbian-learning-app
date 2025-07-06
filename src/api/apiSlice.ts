@@ -40,13 +40,10 @@ export const apiSlice = createApi({
       providesTags: (result, error, id) => [{ type: "Word", id }],
     }),
 
-    getQuestions: builder.query<
-      IQuestion[],
-      { topicId?: string; sort?: "asc" | "desc" }
-    >({
-      query: ({ topicId, sort }) => ({
+    getQuestions: builder.query<IQuestion[], { topicId?: string }>({
+      query: ({ topicId }) => ({
         url: API_ENDPOINTS.QUESTIONS,
-        params: { ...(topicId && { topic: topicId }), ...(sort && { sort }) },
+        params: { ...(topicId && { topic: topicId }) },
       }),
       providesTags: ["Question"],
     }),

@@ -19,7 +19,6 @@ const TestPage = () => {
     error,
   } = useGetQuestionsQuery({
     topicId: topicsParam,
-    sort: "asc",
   });
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
