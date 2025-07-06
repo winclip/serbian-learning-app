@@ -1,4 +1,4 @@
-import { List, Typography, Pagination } from "antd";
+import { List, Typography, Pagination, Result, Spin } from "antd";
 import { useGetTopicsQuery } from "../../api/apiSlice";
 import type { ITopic } from "../../types/models";
 import styles from "./TopicsList.module.scss";
@@ -11,9 +11,19 @@ const { Title } = Typography;
 export const TopicsList = () => {
   const { data: topics = [], isLoading, isError } = useGetTopicsQuery();
   const [currentPage, setCurrentPage] = useState(1);
+  if (isLoading)
+    return (
+      <Spin size="large" style={{ display: "block", margin: "100px auto" }} />
+    );
 
-  if (isLoading) return <div>Loading topics...</div>;
-  if (isError) return <div>Error</div>;
+  if (isError)
+    return (
+      <Result
+        status="error"
+        title="Greška pri učitavanju tema"
+        subTitle="Molimo pokušajte kasnije"
+      />
+    );
 
   const currentData = topics.slice(
     (currentPage - 1) * PAGINATION_SIZE_TOPICS,

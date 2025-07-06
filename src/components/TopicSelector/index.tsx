@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Tag, Button, Typography, Spin } from "antd";
+import { Tag, Button, Typography, Spin, Result } from "antd";
 import { useGetTopicsQuery } from "../../api/apiSlice";
 import type { ITopic } from "../../types/models";
 import styles from "./TopicSelector.module.scss";
@@ -8,9 +8,23 @@ import styles from "./TopicSelector.module.scss";
 const { Title, Text } = Typography;
 
 const TopicSelector: React.FC = () => {
-  const { data: topics, isLoading } = useGetTopicsQuery();
+  const { data: topics, isLoading, isError } = useGetTopicsQuery();
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const navigate = useNavigate();
+
+  if (isLoading)
+    return (
+      <Spin size="large" style={{ display: "block", margin: "100px auto" }} />
+    );
+
+  if (isError)
+    return (
+      <Result
+        status="error"
+        title="Greška pri učitavanju tema"
+        subTitle="Molimo pokušajte kasnije"
+      />
+    );
 
   const toggleTopic = (id: string) => {
     setSelectedTopics((prev) =>
@@ -31,20 +45,16 @@ const TopicSelector: React.FC = () => {
       <Text>Select three or more topics</Text>
 
       <div className={styles.tagsWrapper}>
-        {isLoading ? (
-          <Spin />
-        ) : (
-          topics?.map((topic: ITopic) => (
-            <Tag
-              key={topic._id}
-              color={selectedTopics.includes(topic._id) ? "blue" : "default"}
-              className={styles.tag}
-              onClick={() => toggleTopic(topic._id)}
-            >
-              {topic.nameSr}/{topic.nameEn}
-            </Tag>
-          ))
-        )}
+        {topics?.map((topic: ITopic) => (
+          <Tag
+            key={topic._id}
+            color={selectedTopics.includes(topic._id) ? "blue" : "default"}
+            className={styles.tag}
+            onClick={() => toggleTopic(topic._id)}
+          >
+            {topic.nameSr}/{topic.nameEn}
+          </Tag>
+        ))}
       </div>
 
       <Button
