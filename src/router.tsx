@@ -7,6 +7,7 @@ import ExercisesPage from "./pages/ExercisesPage";
 import ContactsPage from "./pages/ContactsPage";
 import StudyPage from "./pages/StudyPage";
 import TestPage from "./pages/TestPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "contacts", element: <ContactsPage /> },
       { path: "study", element: <StudyPage /> },
       { path: "exercises/test/", element: <TestPage /> },
+      { path: "*", element: <NotFoundPage /> },
     ],
   },
 ]);
