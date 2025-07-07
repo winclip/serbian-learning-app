@@ -42,7 +42,11 @@ const WordCard = ({ word }: WordCardProps) => {
         </Space>
       }
     >
-      <Space direction="vertical" size="small" style={{ width: "100%" }}>
+      <Space
+        direction="vertical"
+        size="small"
+        className={styles.contentWrapper}
+      >
         <div>
           <Text className={styles.translationLabel}>Translation :</Text>
           <Text strong className={styles.translationText}>

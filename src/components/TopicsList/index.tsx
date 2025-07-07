@@ -11,19 +11,21 @@ const { Title } = Typography;
 export const TopicsList = () => {
   const { data: topics = [], isLoading, isError } = useGetTopicsQuery();
   const [currentPage, setCurrentPage] = useState(1);
-  if (isLoading)
-    return (
-      <Spin size="large" style={{ display: "block", margin: "100px auto" }} />
-    );
 
-  if (isError)
+  if (isLoading) {
+    return <Spin size="large" className={styles.loadingSpinner} />;
+  }
+
+  if (isError) {
     return (
       <Result
+        className={styles.errorResult}
         status="error"
-        title="Greška pri učitavanju tema"
-        subTitle="Molimo pokušajte kasnije"
+        title="Error loading topics"
+        subTitle="Please try again later"
       />
     );
+  }
 
   const currentData = topics.slice(
     (currentPage - 1) * PAGINATION_SIZE_TOPICS,

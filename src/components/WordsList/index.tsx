@@ -21,9 +21,7 @@ const WordsList = () => {
 
   if (isLoading) {
     return (
-      <div
-        style={{ display: "flex", justifyContent: "center", padding: "40px" }}
-      >
+      <div className={styles.loadingSpinner}>
         <Spin size="large" />
       </div>
     );
