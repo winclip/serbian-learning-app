@@ -12,17 +12,15 @@ const TopicSelector: React.FC = () => {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const navigate = useNavigate();
 
-  if (isLoading)
-    return (
-      <Spin size="large" style={{ display: "block", margin: "100px auto" }} />
-    );
+  if (isLoading) return <Spin size="large" className={styles.loader} />;
 
   if (isError)
     return (
       <Result
         status="error"
-        title="Greška pri učitavanju tema"
-        subTitle="Molimo pokušajte kasnije"
+        title="Error loading topics"
+        subTitle="Please try again later"
+        className={styles.errorResult}
       />
     );
 

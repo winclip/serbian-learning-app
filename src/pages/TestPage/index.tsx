@@ -74,8 +74,8 @@ const TestPage = () => {
     return (
       <Result
         status="error"
-        title="Greška pri učitavanju pitanja"
-        subTitle="Molimo pokušajte kasnije"
+        title="Error loading questions"
+        subTitle="Please try again later"
       />
     );
 
@@ -83,8 +83,8 @@ const TestPage = () => {
     return (
       <Result
         status="info"
-        title="Pitanja nisu pronađena"
-        subTitle="Pokušajte sa drugom tematikom"
+        title="No questions found"
+        subTitle="Try another topic"
       />
     );
 
@@ -96,7 +96,7 @@ const TestPage = () => {
 
   return (
     <div className={styles.container}>
-      <Title level={2}>Test iz oblasti: </Title>
+      <Title level={2}>Test on topic: </Title>
       <Progress percent={progressPercent} showInfo={false} />
 
       {showResult ? (
@@ -108,7 +108,7 @@ const TestPage = () => {
       ) : (
         <>
           <Title level={4}>
-            Pitanje {currentIndex + 1} od {questions.length}
+            Question {currentIndex + 1} of {questions.length}
           </Title>
 
           <div className={styles.questionBlock}>
@@ -120,8 +120,7 @@ const TestPage = () => {
           <Row gutter={[16, 16]}>
             {currentQuestion.options.map((option: string, index: number) => {
               const isOptionCorrect = index === currentQuestion.answerIndex;
-              const isSelected = index === selectedAnswers[currentIndex];
-              const showColor = isAnswered && (isSelected || isOptionCorrect);
+              const isSelected = selectedAnswers[currentIndex] === index;
 
               return (
                 <Col span={12} key={index}>
@@ -130,11 +129,28 @@ const TestPage = () => {
                     size="large"
                     onClick={() => handleAnswer(index)}
                     disabled={isAnswered}
-                    type={showColor && isOptionCorrect ? "primary" : "default"}
-                    danger={showColor && !isOptionCorrect}
-                    className={styles.optionButton}
+                    className={`${styles.optionButton} ${
+                      isAnswered
+                        ? isOptionCorrect
+                          ? styles.correct
+                          : isSelected
+                          ? styles.incorrect
+                          : ""
+                        : ""
+                    }`}
+                    onTouchStart={(e) =>
+                      e.currentTarget.classList.add(styles.noTapHighlight)
+                    }
+                    onTouchEnd={(e) =>
+                      e.currentTarget.classList.remove(styles.noTapHighlight)
+                    }
                   >
                     {option}
+                    {isAnswered && (isOptionCorrect || isSelected) && (
+                      <span className={styles.answerIndicator}>
+                        {isOptionCorrect ? "✓" : "✗"}
+                      </span>
+                    )}
                   </Button>
                 </Col>
               );
@@ -142,14 +158,15 @@ const TestPage = () => {
           </Row>
 
           {isAnswered && (
-            <Text
-              type={isCorrect ? "success" : "danger"}
-              style={{ display: "block", marginTop: 16, fontSize: 16 }}
+            <div
+              className={`${styles.feedback} ${
+                isCorrect ? styles.success : styles.error
+              }`}
             >
               {isCorrect
-                ? "Tačno!"
-                : `Netačno! Tačan odgovor: ${correctAnswer}`}
-            </Text>
+                ? "Correct!"
+                : `Incorrect! Correct answer: ${correctAnswer}`}
+            </div>
           )}
         </>
       )}
