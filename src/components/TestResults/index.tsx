@@ -1,7 +1,10 @@
-import { Typography, Space, Button } from "antd";
+import { Typography, Button } from "antd";
 import type { FC } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./TestResults.module.scss";
+import { ProgressCircle } from "../ProgressCircleProps";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 interface TestResultsProps {
   score: number;
@@ -14,18 +17,38 @@ const TestResults: FC<TestResultsProps> = ({
   totalQuestions,
   onReset,
 }) => {
+  const navigate = useNavigate();
+  const percentage = Math.round((score / totalQuestions) * 100);
+
+  const goToExercises = () => {
+    navigate("/exercises");
+  };
+
   return (
-    <Space direction="vertical" size="large" style={{ width: "100%" }}>
-      <Title level={3}>Test Results</Title>
-      <Text strong style={{ fontSize: 18 }}>
-        Correct answers: {score} of {totalQuestions} (
-        {Math.round((score / totalQuestions) * 100)}%)
-      </Text>
-      <Button type="primary" onClick={onReset}>
-        Restart Test
-      </Button>
-    </Space>
+    <div className={styles.resultsContainer}>
+      <Title level={3} className={styles.title}>
+        Test Results
+      </Title>
+
+      <ProgressCircle
+        percentage={percentage}
+        score={score}
+        totalQuestions={totalQuestions}
+      />
+
+      <div className={styles.buttonsContainer}>
+        <Button
+          type="primary"
+          className={styles.restartButton}
+          onClick={onReset}
+        >
+          Restart Test
+        </Button>
+        <Button className={styles.exercisesButton} onClick={goToExercises}>
+          Go to Exercises
+        </Button>
+      </div>
+    </div>
   );
 };
-
 export default TestResults;

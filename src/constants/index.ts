@@ -41,3 +41,12 @@ export const emailRules: Rule[] = [
 export const commentRules: Rule[] = [
   { required: true, message: "Please enter a comment" },
 ];
+export const CIRCLE_CONFIG = {
+  radius: 80,
+  strokeWidth: 12,
+  animationDuration: 1500,
+  gradientColors: ["#c2363e", "#1e3a8e"],
+  backgroundColor: "#f0f0f0",
+  size: 200,
+  center: 100,
+};
