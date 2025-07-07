@@ -4,6 +4,8 @@ import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { menuItems } from "../../constants";
 import type { IMenuItem } from "../../types/models";
+import logo from "/images/logo.svg";
+
 import "./AppHeader.scss";
 
 const { Header } = Layout;
@@ -17,6 +19,10 @@ const AppHeader = () => {
 
   return (
     <Header className="header">
+      <NavLink to="/" className="logoLink">
+        <img src={logo} alt="Logo" className="logo" />
+      </NavLink>
+
       {isMobile ? (
         <>
           <Button

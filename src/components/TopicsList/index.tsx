@@ -31,13 +31,20 @@ export const TopicsList = () => {
   );
 
   return (
-    <>
+    <div className={styles.container}>
       <Title level={2} className={styles.title}>
         Topics
       </Title>
-
       <List
-        grid={{ gutter: 26, column: 4 }}
+        grid={{
+          gutter: 16,
+          xs: 1,
+          sm: 2,
+          md: 2,
+          lg: 4,
+          xl: 4,
+          xxl: 4,
+        }}
         dataSource={currentData}
         renderItem={(topic: ITopic) => (
           <List.Item>
@@ -45,7 +52,6 @@ export const TopicsList = () => {
           </List.Item>
         )}
       />
-
       <div className={styles.pagination}>
         <Pagination
           current={currentPage}
@@ -55,6 +61,6 @@ export const TopicsList = () => {
           showSizeChanger={false}
         />
       </div>
-    </>
+    </div>
   );
 };

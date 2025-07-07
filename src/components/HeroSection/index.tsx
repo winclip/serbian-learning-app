@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import styles from "./HeroSection.module.scss";
 import { heroVocabulary } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.section
       className={styles.hero}
@@ -53,6 +56,7 @@ const HeroSection = () => {
               }}
               whileTap={{ scale: 0.95 }}
               className={styles.ctaButton}
+              onClick={() => navigate("/dictionary")}
             >
               Start Learning Free
             </motion.button>
