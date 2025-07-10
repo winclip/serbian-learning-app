@@ -25,7 +25,7 @@ export const apiSlice = createApi({
     }),
     getTopicById: builder.query<ITopic, string>({
       query: (id) => `${API_ENDPOINTS.TOPICS}/${id}`,
-      providesTags: (result, error, id) => [{ type: "Topic", id }],
+      providesTags: (_, __, id) => [{ type: "Topic", id }],
     }),
 
     getWords: builder.query<IWord[], { topicId?: string }>({
@@ -37,7 +37,7 @@ export const apiSlice = createApi({
     }),
     getWordById: builder.query<IWord, string>({
       query: (id) => `${API_ENDPOINTS.WORDS}/${id}`,
-      providesTags: (result, error, id) => [{ type: "Word", id }],
+      providesTags: (_, __, id) => [{ type: "Word", id }],
     }),
 
     getQuestions: builder.query<IQuestion[], { topicId?: string }>({
@@ -49,7 +49,7 @@ export const apiSlice = createApi({
     }),
     getQuestionById: builder.query<IQuestion, string>({
       query: (id) => `${API_ENDPOINTS.QUESTIONS}/${id}`,
-      providesTags: (result, error, id) => [{ type: "Question", id }],
+      providesTags: (_, __, id) => [{ type: "Question", id }],
     }),
     getRandomQuestions: builder.query<
       IQuestion[],
